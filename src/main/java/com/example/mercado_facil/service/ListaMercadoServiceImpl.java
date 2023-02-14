@@ -19,6 +19,16 @@ public class ListaMercadoServiceImpl implements ListaMercadoService {
     }
 
     @Override
+    public ListaMercado atualizarListaMercado(ListaMercado listaMercado) {
+        return listaMercadoRepository.save(listaMercado);
+    }
+
+    @Override
+    public void apagarListaMercado(Long idListaMercado) {
+        listaMercadoRepository.deleteById(idListaMercado);
+    }
+
+    @Override
     public List<ListaMercado> findAll() {
         return listaMercadoRepository.findAll();
     }

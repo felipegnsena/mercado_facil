@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,6 +25,7 @@ public class ListaMercado {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
+    @NotEmpty
     @Column(name = "nome")
     private String nome;
 

@@ -8,5 +8,9 @@ public interface ItemService {
 
     Item criarItem(Item item);
 
+    Item atualizarItem(Item item);
+
+    void apagarItem(Long id);
+
     List<Item> findAll();
 }

@@ -5,7 +5,9 @@ import com.example.mercado_facil.service.ListaMercadoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +34,18 @@ public class ListaMercadoController {
     public ResponseEntity<List<ListaMercado>> findAll() {
         var listaMercadoList = listaMercadoService.findAll();
         return ok(listaMercadoList);
+    }
+
+    @PostMapping("/atualizar")
+    public ResponseEntity<ListaMercado> atualizarListaMercado(@Valid @RequestBody ListaMercado listaMercado) {
+        var listaMercadoAtualizada = listaMercadoService.atualizarListaMercado(listaMercado);
+        return ok(listaMercadoAtualizada);
+    }
+
+    @DeleteMapping("/apagar/{idListaMercado}")
+    public ResponseEntity<Long> apagarListaMercado(@PathVariable("idListaMercado") Long idListaMercado){
+        listaMercadoService.apagarListaMercado(idListaMercado);
+        return ok(idListaMercado);
     }
 
 }
