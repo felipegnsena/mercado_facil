@@ -64,7 +64,7 @@ public class ListaMercadoController {
     }
 
     @DeleteMapping("/apagar/{idListaMercado}")
-    public ResponseEntity<Long> apagarListaMercado(@PathVariable("idListaMercado") Long idListaMercado){
+    public ResponseEntity<Long> apagarListaMercado(@PathVariable Long idListaMercado){
         listaMercadoService.apagarListaMercado(idListaMercado);
         return ok(idListaMercado);
     }

@@ -59,5 +59,4 @@ public class Item {
     @ManyToOne
     @JoinColumn(name = "lista_mercado_id")
     private ListaMercado listaMercado;
-
 }

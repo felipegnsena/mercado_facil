@@ -72,7 +72,7 @@ public class ItemController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Item> findById(@PathVariable long id){
+    public ResponseEntity<Item> findById(@PathVariable("id") long id){
         var itemOptional = itemService.findById(id);
         if(itemOptional.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
