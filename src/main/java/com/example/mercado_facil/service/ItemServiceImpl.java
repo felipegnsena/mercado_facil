@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ItemServiceImpl implements ItemService {
@@ -26,6 +27,11 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void apagarItem(Long id) {
         itemRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<Item> findById(Long id){
+        return itemRepository.findById(id);
     }
 
     @Override

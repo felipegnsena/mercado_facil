@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ListaMercadoServiceImpl implements ListaMercadoService {
@@ -21,6 +22,11 @@ public class ListaMercadoServiceImpl implements ListaMercadoService {
     @Override
     public ListaMercado atualizarListaMercado(ListaMercado listaMercado) {
         return listaMercadoRepository.save(listaMercado);
+    }
+
+    @Override
+    public Optional<ListaMercado> findById(Long id){
+        return listaMercadoRepository.findById(id);
     }
 
     @Override

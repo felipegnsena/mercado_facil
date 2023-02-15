@@ -1,5 +1,6 @@
 package com.example.mercado_facil.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -25,10 +26,10 @@ public class ListaMercado {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @NotEmpty
+    @NotEmpty(message = "O nome da lista deverá ser informado")
     @Column(name = "nome")
     private String nome;
 
-    @OneToMany(mappedBy = "listaMercado", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "listaMercado")
     private List<Item> items;
 }

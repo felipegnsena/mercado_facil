@@ -1,5 +1,6 @@
 package com.example.mercado_facil.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,11 +30,11 @@ public class Item {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @NotEmpty
+    @NotEmpty(message = "O nome do item deverá ser informado!")
     @Column(name = "nome")
     private String nome;
 
-    @NotEmpty
+    @NotNull(message = "O preço do item deverá ser informado")
     @Column(name = "preco")
     private BigDecimal preco;
 
@@ -51,6 +52,7 @@ public class Item {
     @Column(name = "dataAtualizacao")
     private LocalDateTime dataAtualizacao;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "lista_mercado_id")
     private ListaMercado listaMercado;
