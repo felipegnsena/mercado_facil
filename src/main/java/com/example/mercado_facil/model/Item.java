@@ -12,6 +12,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -31,16 +32,18 @@ public class Item {
     private Long id;
 
     @NotEmpty(message = "O nome do item deverá ser informado!")
+    @Length(min=5, max=200, message="O nome do item deverá ter de 5 a 200 caracteres")
     @Column(name = "nome")
     private String nome;
 
-    @NotNull(message = "O preço do item deverá ser informado")
+    @NotNull(message = "O preço do item deverá ser informado!")
     @Column(name = "preco")
     private BigDecimal preco;
 
     @Column(name = "peso")
     private BigDecimal peso;
 
+    @NotNull(message = "A quantidade de itens deverá ser informada!")
     @Column(name ="quantidade")
     private Long quantidade;
 
