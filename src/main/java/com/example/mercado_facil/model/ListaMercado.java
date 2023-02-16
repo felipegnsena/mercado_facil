@@ -1,5 +1,6 @@
 package com.example.mercado_facil.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,6 +31,6 @@ public class ListaMercado {
     private String nome;
 
     @NotNull(message = "O valor da lista de items não pode ser nulo")
-    @OneToMany(mappedBy = "listaMercado")
+    @OneToMany(mappedBy = "listaMercado", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Item> items;
 }
