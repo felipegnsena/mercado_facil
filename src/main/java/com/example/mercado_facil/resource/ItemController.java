@@ -1,7 +1,6 @@
 package com.example.mercado_facil.resource;
 
 import com.example.mercado_facil.model.Item;
-import com.example.mercado_facil.model.ListaMercado;
 import com.example.mercado_facil.responses.Response;
 import com.example.mercado_facil.service.ItemService;
 import jakarta.validation.Valid;
@@ -9,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Objects;
 
 import static org.springframework.http.ResponseEntity.ok;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/item")
 public class ItemController {
